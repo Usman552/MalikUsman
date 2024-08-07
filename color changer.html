@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,4 +65,72 @@
     })
    })
 </script>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+        .container{
+            margin-top: 100px;
+        }
+        #grey{
+            background-color: grey;
+        }
+        #white{
+            background-color:white;
+        }
+        #purple{
+            background-color:purple;
+        }
+        #red{
+            background-color: red;
+        }
+        .button{
+            margin-top: 1000px;
+            width: 400px;
+            padding: 40px;
+            margin: 10px;
+            border:2px solid black;
+                 
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Changer </h1>
+    <div class="container">
+        <span class="button" id="grey"> </span>
+        <span class="button " id="white"></span>
+        <span class="button" id="red"></span>
+        <span class="button" id="purple"></span>
+    </div>
+</body>
+<script>
+   const button = document.querySelectorAll('.button');
+   const body = document.querySelector('body')
+
+   button.forEach(function (button){
+    button.addEventListener('click',function(e){
+        if(e.target.id=='grey')
+        {
+            body.style.backgroundColor=e.target.id;
+        }
+        if(e.target.id=='purple')
+        {
+            body.style.backgroundColor=e.target.id;
+        }
+        if(e.target.id=='red')
+        {
+            body.style.backgroundColor=e.target.id;
+        }
+        if(e.target.id=='white')
+        {
+            body.style.backgroundColor=e.target.id;
+        }
+    })
+   })
+</script>
+>>>>>>> 5dd637a96f95a4345c962ad2e54070335a35572f
 </html>
