@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generater</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
-        body{
+
+        body {
             background-color: teal;
             justify-content: center;
             align-items: center;
@@ -18,7 +20,8 @@
             text-align: center;
             height: 100vh;
         }
-        .wrapper{
+
+        .wrapper {
             border: 1px solid snow;
             text-align: center;
             box-shadow: 0 0 10px black;
@@ -28,14 +31,15 @@
             height: 300px;
             position: relative;
         }
-    
-        header{
+
+        header {
             background-color: blue;
             color: white;
             padding: 10px;
             border-radius: 10px 10px 0 0;
         }
-        #pass{
+
+        #pass {
             width: 75%;
             border: none;
             margin-left: 0;
@@ -43,7 +47,8 @@
             padding: 10px;
             font-weight: bold;
         }
-        #Copy{
+
+        #Copy {
             width: 20%;
             padding: 5px;
             top: 55px;
@@ -55,18 +60,21 @@
             border-radius: 5px;
             font-weight: bold;
         }
-        #Copy:hover{
+
+        #Copy:hover {
             background-color: rgb(35, 35, 151);
             cursor: pointer;
         }
-        .boxes{
+
+        .boxes {
             display: flex;
             justify-content: space-between;
-            padding: 0 15px 7.5px 15px; 
+            padding: 0 15px 7.5px 15px;
             font-weight: bold;
             font-size: 1.2rem;
         }
-        #submit{
+
+        #submit {
             width: 100%;
             background-color: blue;
             color: white;
@@ -79,43 +87,111 @@
             padding: 5px;
             border: none;
         }
-        #submit:hover{
+
+        #submit:hover {
             background-color: rgb(103, 103, 244);
             cursor: pointer;
         }
-
     </style>
 </head>
+
 <body>
     <div class="wrapper">
         <header>
             <h2>Password Generator</h2>
         </header>
         <div class="boxes">
-           <input type="text" placeholder="Password" id="pass">
-           <button id="Copy">Copy</button>
+            <input type="text" placeholder="Password" id="pass">
+            <button id="Copy">Copy</button>
         </div>
         <div class="boxes">
             <label class="length-label">Length</label>
             <input type="number" id="length-number" value="10" max="20" min="5" step="1">
         </div>
         <div class="boxes">
-            <label class="length-label">UpperCase</label>
-            <input type="radio" checked id="Uppercase" >
+            <label class="Uppercase-label">UpperCase</label>
+            <input type="checkbox" checked id="Uppercase">
         </div>
         <div class="boxes">
-            <label class="length-label">LowerCase</label>
-            <input type="radio" checked id="lowercase" >
+            <label class="lowercase-label">LowerCase</label>
+            <input type="checkbox" checked id="lowercase">
         </div>
         <div class="boxes">
-            <label class="length-label">Number</label>
-            <input type="radio" checked id="number" >
+            <label class="number-label">Number</label>
+            <input type="checkbox" checked id="number">
         </div>
         <div class="boxes">
-            <label class="length-label">Symbols</label>
-            <input type="radio" checked id="symbols" >
+            <label class="symbols-label">Symbols</label>
+            <input type="checkbox" checked id="symbols">
         </div>
         <button id="submit">Generate</button>
     </div>
+    <script>
+        const numberlen = document.getElementById('length-number');
+        const upper = document.getElementById('Uppercase');
+        const lower = document.getElementById('lowercase');
+        const number = document.getElementById('number');
+        const symbol = document.getElementById('symbols');
+        const pass = document.getElementById('pass');
+        const copy = document.getElementById('Copy');
+        const generate = document.getElementById('submit');
+
+        console.log(numberlen.value)
+        console.log(upper.checked)
+        console.log(lower.checked)
+        console.log(number.checked)
+        console.log(symbol.checked)
+
+        const UpperCasestr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lowerstr = 'absdefghijklmnopqrstuvwxyz';
+        const numerstr = '0123456789';
+        const symbolstr = '!@$%^&*()_+}{":?>|"}';
+        
+
+        generate.addEventListener('click', () => {
+            let str = '';
+            if (upper.checked) {
+                str += UpperCasestr
+            }
+          if (lower.checked) {
+                str += lowerstr
+            }
+            if (number.checked) {
+                str += numerstr
+            }
+            if (symbol.checked) {
+                str += symbolstr
+            }
+            console.log(str ,'str');
+            let password = '';
+            for( let i=0; i < numberlen.value; i++ ){
+        // console.log(str.length,"str.length");
+        let index = Math.floor(Math.random() * str.length);
+        // console.log(index,"index");
+        // console.log("Math.random()", Math.random());
+        // console.log("Math.random() * str.length", Math.random() * str.length);
+        // console.log("Math.floor(Math.random() * str.length)", Math.floor(Math.random() * str.length));
+        console.log(str[index]);
+        password += str[index];
+     }
+    console.log(password,"password")
+    pass.value = password;
+});
+        copy.addEventListener('click',()=>{
+            if(pass==''){
+                alert('Plaese first generate password');
+            }else{
+                const newle= document.createElement('textarea');
+                newle.value=pass.value;
+                document.body.appendChild(newle);
+                newle.select();
+                document.execCommand('copy');
+                alert('Password copied to clipboard');
+                newle.remove();
+            }
+        })
+
+    </script>
 </body>
+
 </html>
