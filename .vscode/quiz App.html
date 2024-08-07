@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .wrapper{
+            background-color: aliceblue;
+            width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px black;
+            padding: 10px;
+            height: 300px;
+            position:relative;
+        }
+        #question{
+            text-align: center;
+            font-size: 30px;
+        }
+        ul{
+            list-style: none;
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+        li{
+            font-size: 1.2rem;
+            padding: 3px;
+            margin-bottom: 15px;
+        }
+        #submit{
+            background-color: #F1c40E;
+            font-size:large;
+            color:white;
+            width: 100%;
+            display: block;
+            border-radius: 0 0 5px 5px;
+            border: none;
+            padding:5px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-top: 20px;
+        }
+        #submit:hover{
+            background-color: #f39012;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2 id="question">Question</h2>
+        <ul>
+            <li>
+                <input type="radio" class="answer" name="quiz-option">
+                <label for="option-a" id="text_option_a">Option A</label>
+            </li>
+            <li>
+                <input type="radio" class="answer" name="quiz-option">
+                <label for="option-b" id="text_option_b" >Option B</label>
+            </li>
+            <li>
+                <input type="radio" class="answer" name="quiz-option">
+                <label for="option-c" id="text_option_c">Option C</label>
+            </li>
+            <li>
+                <input type="radio" class="answer" name="quiz-option">
+                <label for="option-d" id="text_option_d">Option D</label>
+            </li>
+        </ul>
+        <span></span>
+        <button id="submit">Submit</button>
+    </div>
+    <script>
+        const quiz = [
+    {
+        question: "What is the most used programming language in 2021?",
+        ans1text: "Java",
+        ans2text: "C",
+        ans3text: "Python",
+        ans4text: "JavaScript",
+        answer: "JavaScript",
+    },
+    {
+        question: "Who is the President of US?",
+        ans1text: "Joe Biden",
+        ans2text: "Donald Trump",
+        ans3text: "Barack Obama",
+        ans4text: "George Bush",
+        answer: "Joe Biden",
+    },
+    {
+        question: "What does HTML stand for?",
+        ans1text: "Hypertext Markup Language",
+        ans2text: "Cascading Style Sheet",
+        ans3text: "Jason Object Notation",
+        ans4text: "Helicopters Terminals Motorboats Lamborginis",
+        answer: "Hypertext Markup Language",
+    },
+    {
+        question: "What year was JavaScript launched?",
+        ans1text: "1996",
+        ans2text: "1995",
+        ans3text: "1994",
+        ans4text: "none of the above",
+        answer: "1995",
+
+    }
+]
+const question=document.getElementById('question');
+console.log(question);
+const option_a=document.getElementById('text_option_a');
+const option_b=document.getElementById('text_option_b');
+const option_c=document.getElementById('text_option_c');
+const option_d=document.getElementById('text_option_d');
+
+const answerelement=document.querySelectorAll('.answer');
+console.log(answerelement);
+const submit =document.getElementById('submit');
+console.log(submit);
+let Currentquestion=0;
+let score = 0;
+question.textContent = quiz[Currentquestion].question;
+option_a.textContent = quiz[Currentquestion].ans1text;
+option_b.textContent = quiz[Currentquestion].ans2text;
+option_c.textContent = quiz[Currentquestion].ans3text;
+option_d.textContent = quiz[Currentquestion].ans4text;
+
+submit.addEventListener('click',()=>{
+    const checkedAns=document.querySelector('input[type="radio"]:checked');
+    if(checkedAns==null){
+        alert('Please Select Answer');
+    }else{
+        if (checkedAns.nextElementSibling.textContent===quiz[Currentquestion].answer) {
+            score++;
+        }
+        Currentquestion++;
+        if (Currentquestion<quiz.length) {
+            question.textContent = quiz[Currentquestion].question;
+            option_a.textContent = quiz[Currentquestion].ans1text;
+            option_b.textContent = quiz[Currentquestion].ans2text;
+            option_c.textContent = quiz[Currentquestion].ans3text;
+            option_d.textContent = quiz[Currentquestion].ans4text;
+            checkedAns.checked=false;
+        }else{
+            alert("Your score is " + score + " out of " + quiz.length);
+            location.reload();
+        }
+    }
+})
+
+    </script>
+</body>
+</html>
