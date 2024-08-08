@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temprature converter</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .wrapper {
+            display: block;
+            width: 300px;
+            box-shadow: 0 0 10px black;
+        }
+
+        #head {
+            text-align: center;
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            font-size: 1.2rem;
+        }
+       #celsius{
+        width: 90%;
+        margin: 5px;
+        font-size: 1rem;
+        padding: 3px;
+        border-radius: 3px;
+       }
+       #kalvin{
+        width: 90%;
+        margin: 5px;
+        font-size: 1rem;
+        padding: 3px;
+        border-radius: 3px;
+       }
+       #Fareheight{
+        width: 90%;
+        margin: 5px;
+        font-size: 1rem;
+        padding: 3px;
+        border-radius: 3px;
+       }
+    label{
+        display: block;
+        margin: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="head">
+            <h2>Temprature converter</h2>
+        </header>
+        <div id="inputs">
+            <div id="input1">
+                <label for="input1">
+                    Enter Temprature in celsius
+                </label>
+                <input type="number" placeholder="Enter Temprature in celsius" id="celsius">
+            </div>
+            <div id="input2">
+                <label for="input2">
+                    Enter Temprature in Kelvin
+                </label>
+                <input type="number"placeholder="Enter Temprature Kalvin" id="kalvin">
+            </div>
+            <div id="input3">
+                <label for="input3">
+                    Enter Temprature in Fareheight
+                </label>
+                <input type="number"placeholder="Enter Temprature in Fareheight" id="Fareheight">
+            </div>
+        </div>
+    </div>
+    <script>
+        const celsius=document.getElementById('celsius');
+        const kalvin =document.getElementById('kalvin');
+        const fare=document.getElementById('Fareheight');
+        console.log(celsius,kalvin,fare)
+
+        // calcius to fahrenheit => (0°C × 9/5) + 32 = 32°F
+        // calcius to kelvin => 0°C + 273.15 = 273.15K
+
+        celsius.addEventListener('input', function(){
+            let c=parseFloat(celsius.value);
+            let f=(c*9/5)+32;
+            let k=c+273.5;
+            fare.value=f;
+            kalvin.value=k
+        })
+        // fahrenheit to calcius => (32°F − 32) × 5/9 = 0°C
+        // fahrenheit to kelvin => (32°F − 32) × 5/9 + 273.15 = 273.15K
+        Fareheight.addEventListener('input',function(){
+            let f = parseFloat(fare.value);
+            let c = (f - 32) * 5 / 9;
+            let k = (f - 32) * 5 / 9 + 273.15;
+            calcius.value = c;
+             kelvin.value = k;
+        })
+        // kelvin to calcius => 0K − 273.15 = -273.1°C
+        // kelvin to fahrenheit => (0K − 273.15) × 9/5 + 32 = -459.7°F
+        kalvin.addEventListener('input',function(){
+            let k = parseFloat(kelvin.value);
+             let c = k - 273.15;
+            let f = (k - 273.15) * 9 / 5 + 32;
+             calcius.value = c;
+            fare.value = f;
+        })
+
+  </script>
+</body>
+
+</html>
