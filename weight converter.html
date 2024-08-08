@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weight converter</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .wrapper{
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 0 0 10px black;
+            width: 300px;
+        }
+        #head{
+            text-align: center;
+            background-color: blue;
+            color: white;
+            padding: 10px;
+        }
+        #text{
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        #input{
+            font-size: large;
+            width: 90%;
+            margin: 10px;  
+        }
+        #output{
+            text-align: center;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h2 id="head">Weight Converter</h2>
+        </header>
+        <div id="text">Weight in KG</div>
+        <input type="number" placeholder="Enter weight in kg" id="input">
+        <div id="output">Your weight in Pounds <p id="output">0</p></div>
+
+    </div>
+    <script>
+        const input=document.getElementById('input')
+        const output=document.getElementById('output')
+
+        input.addEventListener('input',()=>{
+            let val=input.value;
+            let out=val*2.204;
+            output.innerText=out;
+        })
+    </script>
+</body>
+</html>
