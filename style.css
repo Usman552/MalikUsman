@@ -1,0 +1,61 @@
+.top-part{
+    height: 300px;
+    }
+.bottom-section{
+    background-color: #e3eaf0;
+}
+.step-first{
+    width: 700px;
+    align-items: center;
+}
+.step-3{
+    width: 700px;
+}
+.need{
+    font-size: 19px;
+    font-weight: 700;
+    color: #272f36;
+}
+.note{
+    font-size: 16px;
+    color: #272f36;
+    font-weight: 700;
+}
+/* From Uiverse.io by mobinkakei */ 
+.cta {
+    display: flex;
+    padding: 11px 33px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background: #272f36;
+    transition: 1s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
+    cursor: pointer;
+  }
+  
+  
+  .cta:focus {
+    outline: none;
+  }
+  
+  .cta:hover {
+    transition: 0.5s;
+    box-shadow: 10px 10px 0 #272f36;
+  }
+  
+  .span {
+    transform: skewX(15deg);
+  }
+  .heading{
+    font-size: 25px;
+    font-weight: bold;
+    color: #272f36;
+    
+  }
+  
+
+  
+  
