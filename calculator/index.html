@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container {
+            width: 350px;
+            margin: 0 auto;
+            margin-top: 100px;
+            background-color: #3a4452;
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .input {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .input input {
+            display: flex;
+            width: 100%;
+            border: none;
+            background-color: black;
+            border-radius: 20px;
+            color: #e0e0e0;
+            font-size: 20px;
+            padding: 10px 20px;
+            outline: none;
+            justify-content: flex-end;
+            flex: 1;
+            text-align: right;
+            font-weight: 700;
+            margin: 10px 0px;
+            box-shadow: none;
+        }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        button {
+            width: 70px;
+            height: 50px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: -8px -8px 15px rgb(255, 255, 255, 0.1), 5px 5px 15px rgb(0, 0, 0, 0.2);
+            background: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: 900;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+            color: black;
+        }
+
+        #equal {
+            width: 156px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <input type="text" id="display">
+        </div>
+        <div class="box">
+            <div>
+                <button value="AC">AC</button>
+                <button value="DEL">Del</button>
+                <button value=".">.</button>
+                <button value="/">/</button>
+            </div>
+            <div>
+                <button value="7">7</button>
+                <button value="8">8</button>
+                <button value="9">9</button>
+                <button value="*">*</button>
+            </div>
+            <div>
+                <button value="4">4</button>
+                <button value="5">5</button>
+                <button value="6">6</button>
+                <button value="-">-</button>
+            </div>
+            <div>
+                <button value="1">1</button>
+                <button value="2">2</button>
+                <button value="3">3</button>
+                <button value="+">+</button>
+            </div>
+            <div>
+                <button value="0">0</button>
+                <button value="00">00</button>
+                <button value="=" id="equal">=</button>
+            </div>
+
+            <script src="index.js"></script>
+
+</body>
+
+</html>
